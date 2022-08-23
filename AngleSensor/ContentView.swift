@@ -8,9 +8,19 @@
 import SwiftUI
 
 struct ContentView: View {
+    @StateObject private var contentViewModel = ContentViewModel()
+//    let motion = MotionManager.shared
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        Text("\(contentViewModel.roll)")
+        Text("\(contentViewModel.yaw)")
+        
+        Button {
+            contentViewModel.angle()
+        } label: {
+            Text("ANGLE")
+                .font(.title)
+                .border(.black, width: 2)
+        }
     }
 }
 
